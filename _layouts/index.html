@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<div class="container slider-container">
+    <!-- List of items -->
+    {% for post in site.posts %}
+    <div class="slider-item fade">
+        <a class="slider-link" href="{{ post.url | prepend: site.baseurl }}">
+            <div class="slider-item">
+                <h2 class="slider-title">{{ post.title }}</h2>
+                <!-- Preview image -->
+                <img class="slider-img" src="{{ site.baseurl }}/assets/covers/{{ post.name }}.jpg" />
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+    <!-- Navigation buttons -->
+    <a class="slide-left" onclick="nextSlide(-1)">❮</a>
+    <a class="slider-right" onclick="nextSlide(1)">❯</a>
+</div>
