@@ -19,8 +19,14 @@ body {
     height: auto;
 }
 
+.slider-link {
+    text-decoration: none;
+}
+
 .slider-title {
     height: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #444;
 }
 
 .slider-container {

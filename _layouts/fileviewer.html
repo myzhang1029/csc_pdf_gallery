@@ -443,7 +443,7 @@ See https://github.com/adobe-type-tools/cmap-resources
   </div> <!-- outerContainer -->
   <div id="printContainer"></div>
   <script>
-    const config_file_url = document.querySelector("#outerContainer").dataset.pdfurl;
+    const config_file_url = "{{ site.baseurl }}/assets/documents/{{ page.pdfname }}";
     const config_img_path = "{{ site.baseurl }}/assets/pdfjs_pages/images/";
     const config_cmap_path = "{{ site.baseurl }}/assets/pdfjs_pages/cmaps/";
     const config_worker_src = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.worker.min.js";

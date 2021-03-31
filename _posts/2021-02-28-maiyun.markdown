@@ -1,4 +1,6 @@
 ---
 layout: fileviewer
-name: maiyun
+pdfname: maiyun.pdf
+imgname: maiyun.png
+title: Maiyun's Dumb Formulas
 ---
