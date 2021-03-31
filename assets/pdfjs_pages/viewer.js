@@ -3,6 +3,7 @@
  * Javascript code in this page
  *
  * Copyright 2020 Mozilla Foundation
+ * Modified by Zhang Maiyun for PDF Gallery
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

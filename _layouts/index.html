@@ -1,12 +1,13 @@
 ---
 layout: default
+title: Gallery
 ---
-<div class="container slider-container">
+<main class="container slider-container">
     <!-- List of items -->
     {% for post in site.posts %}
-    <div class="slider-item fade">
+    <div class="slider-item slider-fade">
         <a class="slider-link" href="{{ post.url | prepend: site.baseurl }}">
-            <div class="slider-item">
+            <div class="slider-subitem">
                 <h2 class="slider-title">{{ post.title }}</h2>
                 <!-- Preview image -->
                 <img class="slider-img" src="{{ site.baseurl }}/assets/covers/{{ post.name }}.jpg" />
@@ -15,6 +16,10 @@ layout: default
     </div>
     {% endfor %}
     <!-- Navigation buttons -->
-    <a class="slide-left" onclick="nextSlide(-1)">❮</a>
-    <a class="slider-right" onclick="nextSlide(1)">❯</a>
-</div>
+    <div class="slider-left">
+        <a class="slider-left-arrow" onclick="nextSlide(-1)">❮</a>
+    </div>
+    <div class="slider-right">
+        <a class="slider-right-arrow" onclick="nextSlide(1)">❯</a>
+    </div>
+</main>

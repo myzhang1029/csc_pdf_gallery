@@ -28,10 +28,6 @@ baseurl: "/csc_pdf_gallery"
 url: "https://myzhang1029.github.io"
 github_username:  myzhang1029
 
-sass:
-  sass_dir:          _sass
-  style:            :compressed
-
 # About/contact
 author:
   name:              Zhang Maiyun
