@@ -9,7 +9,11 @@ body {
     max-height: calc(100vh - 16px);
     position: relative;
     margin: auto;
+    color: #eff5d4;
+    font-size: 30px;
+    text-align: center;
 }
+
 
 .slider-item {
     display: none;
@@ -25,6 +29,7 @@ body {
 }
 
 .slider-img {
+    z-index: 0;
     object-fit: contain;
     max-width: 94vw; /* vw - button */
     width: auto;
@@ -33,15 +38,23 @@ body {
 }
 
 .slider-title {
-    height: 20px;
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    z-index: 1;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #444;
+    background: #e6e6e6dd;
+    padding: 5px 10vw;
+    border-radius: 7px 7px 0 0;
 }
 
 .slider-left,
 .slider-right {
     cursor: pointer;
     position: fixed;
+    z-index: 1;
     width: 3vw;
     padding: 16px;
     top: 10vh;
@@ -51,7 +64,6 @@ body {
     font-size: 2em;
     transition: 0.6s ease;
     background: #e6e6e6aa;
-    z-index: 1;
 }
 
 .slider-left-arrow,
@@ -83,16 +95,6 @@ body {
 .slider-left:hover,
 .slider-right:hover {
     background-color: rgba(115, 115, 115, 0.8);
-}
-
-.slider-container {
-    color: #eff5d4;
-    font-size: 30px;
-    padding: 8px 0;
-    position: absolute;
-    top: 10px;
-    width: 100%;
-    text-align: center;
 }
 
 .active {
