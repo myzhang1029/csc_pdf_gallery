@@ -9,6 +9,7 @@ title: Gallery
 </head>
 
 <body>
+    <noscript>This page heavily relies on Javascript to function. Please turn it on as we do not use any cookies.</noscript>
     <header class="masthead">
         <a href="{{ site.baseurl }}/"><img class="logo-img" src="{{ site.baseurl }}/assets/logo.png" /></a>
     </header>
@@ -38,7 +39,7 @@ title: Gallery
         var items_per_slide_width = 2;
         var items_per_slide_height;
         var items_per_slide;
-        update_items_per_slide(items_per_slide_width, items_per_slide_height);
+        update_items_per_slide();
 
         // Resize image on '+' and '-' pressed
         document.addEventListener('keydown', function (event) {
@@ -50,17 +51,17 @@ title: Gallery
             else if (event.code == "Minus") {
                 items_per_slide_width += 1;
             }
-            update_items_per_slide(items_per_slide_width, items_per_slide_height);
+            update_items_per_slide();
         });
 
         // Recompute the widths when the window is resized
         document.addEventListener("resize", function (event) {
-            update_items_per_slide(items_per_slide_width, items_per_slide_height);
+            update_items_per_slide();
         });
 
         // Get the total height of an element, exclude main width if STRIP
         function getTotalHeight(element, strip = false) {
-            let variables = [strip ? 0 : window.getComputedStyle(element).width,
+            let variables = [strip ? 0 : window.getComputedStyle(element).height,
             window.getComputedStyle(element).borderTopWidth,
             window.getComputedStyle(element).borderBottomWidth,
             window.getComputedStyle(element).paddingTop,
@@ -96,7 +97,7 @@ title: Gallery
             return result;
         }
 
-        function update_items_per_slide(n_items_w, n_items_h) {
+        function update_items_per_slide() {
             /* Try to maintain this ratio, while avoiding becoming zero */
             items_per_slide_height = Math.max(Math.floor(items_per_slide_width * 2.0 / 3.0), 1);
             items_per_slide = items_per_slide_height * items_per_slide_width;
@@ -106,17 +107,18 @@ title: Gallery
             let any_item = document.getElementsByClassName("slider-item")[0];
             let item_extrawidth = getTotalWidth(any_item, true);
             /* Width of every item */
-            let width_per_item = docwidth / n_items_w - item_extrawidth;
+            let width_per_item = docwidth / items_per_slide_width - item_extrawidth;
             /* Height of the header */
             let header = document.getElementsByTagName("header")[0];
             let header_height = getTotalHeight(header);
-            let docheight = document.documentElement.clientWidth;
-            let height_per_item = docheight / n_items_h;
+            let docheight = document.documentElement.clientHeight;
+            let height_per_item = (docheight - header_height) / items_per_slide_height;
             var slides = document.getElementsByClassName("slider-item");
             var i;
+            console.log(docheight, header_height, height_per_item);
             for (i = 0; i < slides.length; ++i) {
-                slides[i].style.width = Math.floor(width_per_item) + "px";
                 slides[i].style.height = Math.floor(height_per_item) + "px";
+                slides[i].style.width = Math.floor(width_per_item) + "px";
             }
             displaySlides(slide_index);
         }
