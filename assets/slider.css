@@ -5,7 +5,7 @@ body {
 }
 
 .container {
-    max-width: 1000px;
+    width: 100%;
     max-height: calc(100vh - 16px);
     position: relative;
     margin: auto;
@@ -15,23 +15,25 @@ body {
 }
 
 .slider-container {
+    width: 100%;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
 }
 
 
 .slider-item {
+    z-index: 0;
     display: none;
-    margin: 0;
+    margin: auto;
     padding: 5px;
 }
 
 .slider-img {
-    z-index: 0;
     object-fit: contain;
     max-width: 100%;
     width: auto;
-    max-height: 100%;
+    max-height: calc(94% - 10px);
     height: auto;
     background-color: white;
 }
@@ -46,15 +48,13 @@ body {
 }
 
 .slider-title {
-    z-index: 1;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: auto;
-    height: 1em;
+    font-size: 70%;
+    height: 6%;
     color: #444;
     background: #e6e6e6dd;
     padding: 5px 0;
     width: 100%;
-    border-radius: 7px 7px 0 0;
     text-overflow: ellipsis;
 }
 
