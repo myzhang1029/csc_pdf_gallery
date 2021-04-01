@@ -4,7 +4,7 @@ body {
     background: white;
 }
 
-.slider-container {
+.container {
     max-width: 1000px;
     max-height: calc(100vh - 16px);
     position: relative;
@@ -14,40 +14,48 @@ body {
     text-align: center;
 }
 
+.slider-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 
 .slider-item {
     display: none;
-}
-
-.slider-link {
-    text-decoration: none;
-    display: block;
-}
-
-.slide-box {
-    width: 100%;
+    margin: 0;
+    padding: 5px;
 }
 
 .slider-img {
     z-index: 0;
     object-fit: contain;
-    max-width: 94vw; /* vw - button */
+    max-width: 100%;
     width: auto;
-    max-height: calc(100% - 20px); /* - figcaption - 2*padding */
+    max-height: 100%;
     height: auto;
+    background-color: white;
+}
+
+.masthead {
+    padding: 5px;
+}
+
+.logo-img {
+    height: 5vh;
+    width: auto;
 }
 
 .slider-title {
-    position: fixed;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
     z-index: 1;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: auto;
+    height: 1em;
     color: #444;
     background: #e6e6e6dd;
-    padding: 5px 10vw;
+    padding: 5px 0;
+    width: 100%;
     border-radius: 7px 7px 0 0;
+    text-overflow: ellipsis;
 }
 
 .slider-left,
@@ -57,9 +65,9 @@ body {
     z-index: 1;
     width: 3vw;
     padding: 16px;
-    top: 10vh;
-    height: 80vh;
-    margin-top: -22px;
+    margin: 0;
+    top: 45vh;
+    height: 9vh;
     font-weight: bold;
     font-size: 2em;
     transition: 0.6s ease;
@@ -84,7 +92,7 @@ body {
 .slider-left-arrow,
 .slider-right-arrow {
     position: fixed;
-    top: 45vh;
+    top: 47vh;
     height: 4vh;
     color: white;
     -webkit-touch-callout: none;
