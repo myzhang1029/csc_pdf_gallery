@@ -1,6 +1,0 @@
----
-layout: fileviewer
-pdfname: maiyun.pdf
-imgname: maiyun.png
-title: Maiyun's Dumb Formulas
----

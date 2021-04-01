@@ -66,20 +66,9 @@ body {
     background: #e6e6e6aa;
 }
 
-.slider-left-arrow,
-.slider-right-arrow {
-    position: fixed;
-    top: 45vh;
-    height: 4vh;
-    color: white;
-}
-
-.slider-left-arrow {
-    left: 1.5vw;
-}
-
-.slider-right-arrow {
-    right: 1.5vw;
+.slider-left:hover,
+.slider-right:hover {
+    background-color: rgba(115, 115, 115, 0.8);
 }
 
 .slider-left {
@@ -92,9 +81,26 @@ body {
     border-radius: 7px 0 0 7px;
 }
 
-.slider-left:hover,
-.slider-right:hover {
-    background-color: rgba(115, 115, 115, 0.8);
+.slider-left-arrow,
+.slider-right-arrow {
+    position: fixed;
+    top: 45vh;
+    height: 4vh;
+    color: white;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.slider-left-arrow {
+    left: 1.5vw;
+}
+
+.slider-right-arrow {
+    right: 1.5vw;
 }
 
 .active {

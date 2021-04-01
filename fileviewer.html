@@ -1,3 +1,6 @@
+---
+title: PDF Viewer
+---
 <!--
 Copyright 2012 Mozilla Foundation
 Modified by Zhang Maiyun for PDF Gallery
@@ -21,7 +24,16 @@ Adobe CMap resources are covered by their own copyright but the same license:
 See https://github.com/adobe-type-tools/cmap-resources
 -->
 <html dir="ltr" mozdisallowselectionprint>
-{% include viewer_head.html %}
+<head>
+  {% include head.html %}
+
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/pdfjs_pages/viewer.css">
+
+  <link rel="resource" type="application/l10n" href="{{ site.baseurl }}/assets/pdfjs_pages/locale/locale.properties">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"
+    integrity="sha512-g4FwCPWM/fZB1Eie86ZwKjOP+yBIxSBM/b2gQAiSVqCgkyvZ0XxYPDEcN2qqaKKEvK6a05+IPL1raO96RrhYDQ=="
+    crossorigin="anonymous"></script>
+</head>
 
 <body tabindex="1" class="loadingInProgress">
   <div id="outerContainer" data-pdfurl="{{ site.baseurl }}/assets/{{ page.name }}.pdf">

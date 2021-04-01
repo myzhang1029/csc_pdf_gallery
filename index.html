@@ -1,7 +1,19 @@
+---
+title: Gallery
+items:
+  - title: "Maiyun's Dumb Formulas"
+    pdfname: "maiyun.pdf"
+    imgname: "maiyun.png"
+  - title: "AMC Session"
+    pdfname: "renxuan.pdf"
+    imgname: "renxuan.png"
+---
 <!DOCTYPE html>
 <html lang="en">
 
-{% include index_head.html %}
+<head>
+    {% include head.html %}
+</head>
 
 <body>
 
@@ -13,13 +25,13 @@
         </header-->
     <main class="container slider-container">
         <!-- List of items -->
-        {% for post in site.posts %}
-        <a class="slider-link" href="{{ post.url | prepend: site.baseurl }}">
+        {% for item in page.items %}
+        <a class="slider-link" href="{{ site.baseurl }}/fileviewer.html?file={{ site.baseurl }}/assets/documents/{{ item.pdfname }}">
             <figure class="slider-item slider-fade slider-box">
                 <!-- Preview image -->
-                <img class="slider-img" src="{{ site.baseurl }}/assets/covers/{{ post.imgname }}" />
+                <img class="slider-img" src="{{ site.baseurl }}/assets/covers/{{ item.imgname }}" />
                 <!-- Caption -->
-                <figcaption class="slider-title">{{ post.title }}</figcaption>
+                <figcaption class="slider-title">{{ item.title }}</figcaption>
             </figure>
         </a>
         {% endfor %}
@@ -34,6 +46,7 @@
 
     <script>
         var slide_index = 1;
+        var items_per_slide = 4;
         displaySlides(slide_index);
 
         function nextSlide(n) {

@@ -1,6 +1,0 @@
----
-layout: fileviewer
-pdfname: renxuan.pdf
-imgname: renxuan.png
-title: AMC Session
----
