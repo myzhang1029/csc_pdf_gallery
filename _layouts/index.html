@@ -14,14 +14,14 @@
     <main class="container slider-container">
         <!-- List of items -->
         {% for post in site.posts %}
-        <div class="slider-item slider-fade slider-box">
-            <a class="slider-link" href="{{ post.url | prepend: site.baseurl }}">
+        <a class="slider-link" href="{{ post.url | prepend: site.baseurl }}">
+            <figure class="slider-item slider-fade slider-box">
                 <!-- Preview image -->
                 <img class="slider-img" src="{{ site.baseurl }}/assets/covers/{{ post.imgname }}" />
                 <!-- Caption -->
                 <figcaption class="slider-title">{{ post.title }}</figcaption>
-            </a>
-        </div>
+            </figure>
+        </a>
         {% endfor %}
         <!-- Navigation buttons -->
         <div class="slider-left" onclick="nextSlide(-1)">
@@ -32,7 +32,7 @@
         </div>
     </main>
 
-    <script type="text/javascript">
+    <script>
         var slide_index = 1;
         displaySlides(slide_index);
 
