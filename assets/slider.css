@@ -25,12 +25,12 @@ body {
 .slider-item {
     z-index: 0;
     display: none;
-    margin: auto;
     padding: 5px;
 }
 
 .slider-img {
     object-fit: contain;
+    margin: auto;
     max-width: 100%;
     width: auto;
     max-height: calc(94% - 10px);
