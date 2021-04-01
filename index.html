@@ -80,7 +80,7 @@ title: Gallery
             window.getComputedStyle(element).marginTop,
             window.getComputedStyle(element).marginBottom];
             var result = 0;
-            for (i in variables) {
+            for (var i in variables) {
                 let k = parseInt(variables[i]);
                 if (!isNaN(k)) {
                     result += k;
@@ -99,7 +99,7 @@ title: Gallery
             window.getComputedStyle(element).marginLeft,
             window.getComputedStyle(element).marginRight];
             var result = 0;
-            for (i in variables) {
+            for (var i in variables) {
                 let k = parseInt(variables[i]);
                 if (!isNaN(k)) {
                     result += k;
@@ -119,7 +119,6 @@ title: Gallery
             let item_extrawidth = getTotalWidth(any_item, true);
             /* Width of every item */
             let width_per_item = docwidth / items_per_slide_width - item_extrawidth;
-            console.log(width_per_item);
             /* Height of the header */
             let header = document.getElementsByTagName("header")[0];
             let header_height = getTotalHeight(header);
@@ -136,12 +135,46 @@ title: Gallery
             /* Height of every figure */
             let height_per_item = (docheight - header_height) / items_per_slide_height - title_height - item_other;
             var slides = document.getElementsByClassName("slider-item");
-            var i;
-            for (i = 0; i < slides.length; ++i) {
+            for (var i = 0; i < slides.length; ++i) {
                 slides[i].style.height = Math.floor(height_per_item) + "px";
                 slides[i].style.width = Math.floor(width_per_item) + "px";
             }
+            fitCaptionText();
             displaySlides(slide_index);
+        }
+
+        function getTextRenderedWidth(text, font) {
+            var tag = document.createElement('div');
+            tag.style.position = 'absolute';
+            tag.style.top = '-100%';
+            tag.style.whiteSpace = 'nowrap';
+            tag.style.font = font;
+            tag.innerHTML = text;
+
+            document.body.appendChild(tag);
+            let result = tag.clientWidth;
+            document.body.removeChild(tag);
+            return result;
+        }
+
+        function fitCaptionText() {
+            var items = document.getElementsByClassName("slider-title");
+            for (var i = 0; i < items.length; ++i) {
+                let parentWidth = items[i].clientWidth;
+                if (isNaN(parentWidth) || parentWidth == 0) {
+                    continue;
+                }
+                var lastresult = 0;
+                while (true) {
+                    let newWidth = getTextRenderedWidth(items[i].innerText, window.getComputedStyle(items[i]).font);
+                    if (newWidth == lastresult || newWidth < parentWidth)
+                        break;
+                    lastresult = newWidth;
+                    console.log(getTextRenderedWidth(items[i].innerText, window.getComputedStyle(items[i]).font), parentWidth);
+                    console.log(parseInt(window.getComputedStyle(items[i]).fontSize));
+                    items[i].style.fontSize = (parseInt(items[i].style.fontSize) - 1) + "px";
+                }
+            }
         }
 
         function nextSlide(n) {
