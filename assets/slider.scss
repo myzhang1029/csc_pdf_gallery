@@ -107,20 +107,12 @@ body {
     vertical-align: middle;
     display: flex;
     justify-content:center;
-}
-
-.slider-left span,
-.slider-right span,
-.slider-resize-add span,
-.slider-resize-minus span {
-    transform: translateY(-100%);
-}
-
-.slider-left:hover,
-.slider-right:hover,
-.slider-resize-add:hover,
-.slider-resize-minus:hover {
-    background-color: rgba(115, 115, 115, 0.8);
+    & span {
+        transform: translateY(-100%);
+    }
+    &:hover {
+        background-color: rgba(115, 115, 115, 0.8);
+    }
 }
 
 .slider-left {
@@ -131,14 +123,6 @@ body {
 .slider-right {
     right: 0;
     border-radius: 7px 0 0 7px;
-}
-
-.slider-left-arrow {
-    left: 1.5vw;
-}
-
-.slider-right-arrow {
-    right: 1.5vw;
 }
 
 /* Fading animation */
