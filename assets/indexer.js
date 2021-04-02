@@ -225,6 +225,8 @@ function pointMove(ev) {
         // Cache the distance for the next move event
         prevDiff = curDiff;
     }
+    window.innerWidth = screen.width;
+    document.body.style.zoom = "100%";
 }
 
 function remove_event(ev) {
