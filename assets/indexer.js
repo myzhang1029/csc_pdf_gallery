@@ -25,11 +25,6 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
-// Recompute the widths when the window is resized
-document.addEventListener("resize", function (event) {
-    update_items_per_slide();
-});
-
 // Get the total height of an element, exclude main width if STRIP
 function getTotalHeight(element, strip = false) {
     let variables = [strip ? 0 : window.getComputedStyle(element).height,
