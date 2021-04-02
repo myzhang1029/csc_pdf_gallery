@@ -143,3 +143,7 @@ body {
         opacity: 1
     }
 }
+
+@media only screen and (hover: none) and (pointer: coarse) {
+    /* Show zoom */
+}
