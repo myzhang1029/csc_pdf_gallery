@@ -65,29 +65,28 @@ body {
 
 .slider-left,
 .slider-right {
-    width: 3vw;
+    width: 20px;
     margin: 0;
     padding: 16px;
-    top: 45vh;
-    height: 9vh;
+    top: calc(50vh - 35px);
+    height: 70px;
 }
 
 .slider-resize-add,
 .slider-resize-minus {
-    width: 1vw;
-    height: 1vw;
+    width: 40px;
+    height: 40px;
     margin: 0;
-    padding: 16px;
     top: 0;
     border-radius: 0 0 7px 7px;
 }
 
 .slider-resize-add {
-    right: 12vw;
+    right: 80px;
 }
 
 .slider-resize-minus {
-    right: 6vw;
+    right: 20px;
 }
 
 .slider-left,
@@ -107,9 +106,6 @@ body {
     vertical-align: middle;
     display: flex;
     justify-content:center;
-    & span {
-        transform: translateY(-100%);
-    }
     &:hover {
         background-color: rgba(115, 115, 115, 0.8);
     }
