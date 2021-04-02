@@ -66,7 +66,11 @@ function getTotalWidth(element, strip = false) {
 function update_items_per_slide() {
     /* Try to maintain this ratio, while avoiding becoming zero */
     items_per_slide_height = Math.max(Math.floor(items_per_slide_width * 2.0 / 3.0), 1);
+    let prev_slides = items_per_slide * slide_index;
     items_per_slide = items_per_slide_height * items_per_slide_width;
+    if (prev_slides != 0 && !isNaN(prev_slides)) {
+        slide_index = Math.ceil(prev_slides / items_per_slide);
+    }
     /* Viewport width */
     let docwidth = document.documentElement.clientWidth;
     /* Calculate width of the padding */
