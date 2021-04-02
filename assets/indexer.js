@@ -156,11 +156,11 @@ function displaySlides(n) {
     var i, j;
     var slides = document.getElementsByClassName("slider-item");
     /* Loop back if overflow/underflow */
-    if (n > slides.length / items_per_slide) {
+    if (n > Math.ceil(slides.length / items_per_slide)) {
         slide_index = 1;
     }
     if (n < 1) {
-        slide_index = slides.length;
+        slide_index = Math.ceil(slides.length / items_per_slide);
     }
     for (i = 0; i < (slides.length / items_per_slide); ++i) {
         var display;
