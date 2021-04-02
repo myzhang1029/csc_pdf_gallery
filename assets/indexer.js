@@ -99,7 +99,6 @@ function update_items_per_slide() {
         slides[i].style.width = Math.floor(width_per_item) + "px";
     }
     displaySlides(slide_index);
-    fitCaptionText();
 }
 
 function getTextRenderedSize(text, font) {
@@ -174,4 +173,5 @@ function displaySlides(n) {
             }
         }
     }
+    fitCaptionText();
 }
