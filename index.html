@@ -12,8 +12,10 @@ title: Gallery
     <noscript>This page heavily relies on Javascript to function. Please turn it on as we do not use any
         cookies.</noscript>
     <header class="masthead">
-        <a href="{{ site.baseurl }}/"><img alt="UWC Changshu China Project Week Logo" class="logo-img"
-                src="{{ site.baseurl }}/assets/logo.png" /></a>
+        <!--a href="{{ site.baseurl }}/"><img alt="UWC Changshu China Project Week Logo" class="logo-img"
+                src="{{ site.baseurl }}/assets/logo.png" /></a-->
+        <div class="slider-resize-add" onclick="zoom(1)"><span>+</span></div>
+        <div class="slider-resize-minus" onclick="zoom(-1)"><span>-</span></div>
     </header>
     <main class="container">
         <div class="slider-container">
@@ -29,12 +31,8 @@ title: Gallery
             {% endfor %}
         </div>
         <!-- Navigation buttons -->
-        <div class="slider-left" onclick="nextSlide(-1)">
-            <span class="slider-left-arrow">❮</span>
-        </div>
-        <div class="slider-right" onclick="nextSlide(1)">
-            <span class="slider-right-arrow">❯</span>
-        </div>
+        <div class="slider-left" onclick="nextSlide(-1)">❮</div>
+        <div class="slider-right" onclick="nextSlide(1)">❯</div>
     </main>
 
     <script src="{{ site.baseurl }}/assets/indexer.js"></script>
