@@ -19,7 +19,7 @@ title: Gallery
         <a class="slider-item slider-fade slider-box"
             href="{{ site.baseurl }}/fileviewer.html?file={{ site.baseurl }}/assets/documents/{{ item.pdfname }}">
             <!-- Preview image -->
-            <img class="slider-img" src="{{ site.baseurl }}/assets/covers/{{ item.imgname }}" />
+            <img class="slider-img" alt="Cover page for PDF file titled {{ item.title }} named {{ item.pdfname }}." src="{{ site.baseurl }}/assets/covers/{{ item.imgname }}" />
             <!-- Caption -->
             <p class="slider-title">{{ item.title }}</p>
         </a>
@@ -27,10 +27,10 @@ title: Gallery
     </div>
 
     <!-- Navigation buttons -->
-    <div class="slider-left" type="div" onclick="nextSlide(-1)">❮</div>
-    <div class="slider-right" type="div" onclick="nextSlide(1)">❯</div>
-    <div class="slider-resize-add" type="div" onclick="zoom(1)">+</div>
-    <div class="slider-resize-minus" type="div" onclick="zoom(-1)">-</div>
+    <div class="slider-left" onclick="nextSlide(-1)">❮</div>
+    <div class="slider-right" onclick="nextSlide(1)">❯</div>
+    <div class="slider-resize-add" onclick="zoom(1)">+</div>
+    <div class="slider-resize-minus" onclick="zoom(-1)">-</div>
 
     <script src="{{ site.baseurl }}/assets/indexer.js"></script>
 </body>
