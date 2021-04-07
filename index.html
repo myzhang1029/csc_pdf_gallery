@@ -9,31 +9,28 @@ title: Gallery
 </head>
 
 <body onresize="update_items_per_slide();">
-    <noscript>This page heavily relies on Javascript to function. Please turn it on as we do not use any
-        cookies.</noscript>
-    <header class="masthead">
-        <!--a href="{{ site.baseurl }}/"><img alt="UWC Changshu China Project Week Logo" class="logo-img"
-                src="{{ site.baseurl }}/assets/logo.png" /></a-->
-        <div class="slider-resize-add" onclick="zoom(1)">+</div>
-        <div class="slider-resize-minus" onclick="zoom(-1)">-</div>
-    </header>
-    <main class="container">
-        <div class="slider-container">
-            <!-- List of items -->
-            {% for item in site.data.items %}
-            <figure class="slider-item slider-fade slider-box"
-                onclick="window.location.assign('{{ site.baseurl }}/fileviewer.html?file={{ site.baseurl }}/assets/documents/{{ item.pdfname }}');">
-                <!-- Preview image -->
-                <img class="slider-img" src="{{ site.baseurl }}/assets/covers/{{ item.imgname }}" />
-                <!-- Caption -->
-                <figcaption class="slider-title">{{ item.title }}</figcaption>
-            </figure>
-            {% endfor %}
-        </div>
-        <!-- Navigation buttons -->
-        <div class="slider-left" onclick="nextSlide(-1)">❮</div>
-        <div class="slider-right" onclick="nextSlide(1)">❯</div>
-    </main>
+    <noscript>
+        This page heavily relies on Javascript to function. Please turn it on as we do not use any cookies.
+    </noscript>
+
+    <div class="slider-container">
+        <!-- List of items -->
+        {% for item in site.data.items %}
+        <a class="slider-item slider-fade slider-box"
+            href="{{ site.baseurl }}/fileviewer.html?file={{ site.baseurl }}/assets/documents/{{ item.pdfname }}">
+            <!-- Preview image -->
+            <img class="slider-img" src="{{ site.baseurl }}/assets/covers/{{ item.imgname }}" />
+            <!-- Caption -->
+            <p class="slider-title">{{ item.title }}</p>
+        </a>
+        {% endfor %}
+    </div>
+
+    <!-- Navigation buttons -->
+    <div class="slider-left" type="div" onclick="nextSlide(-1)">❮</div>
+    <div class="slider-right" type="div" onclick="nextSlide(1)">❯</div>
+    <div class="slider-resize-add" type="div" onclick="zoom(1)">+</div>
+    <div class="slider-resize-minus" type="div" onclick="zoom(-1)">-</div>
 
     <script src="{{ site.baseurl }}/assets/indexer.js"></script>
 </body>

@@ -78,12 +78,9 @@ function update_items_per_slide() {
     let item_extrawidth = getTotalWidth(any_item, true);
     /* Width of every item */
     let width_per_item = docwidth / items_per_slide_width - item_extrawidth;
-    /* Height of the header */
-    let header = document.getElementsByTagName("header")[0];
-    let header_height = getTotalHeight(header);
     let docheight = document.documentElement.clientHeight;
     /* A caption */
-    let title = document.getElementsByTagName("figcaption")[0];
+    let title = document.getElementsByClassName("slider-title")[0];
     let old_display = title.style.display;
     title.style.display = "block";
     let title_height = getTotalHeight(title);
@@ -92,7 +89,7 @@ function update_items_per_slide() {
     /* Margin and padding of the figure */
     let item_other = getTotalHeight(document.getElementsByClassName("slider-item")[0], true);
     /* Height of every figure */
-    let height_per_item = (docheight - header_height) / items_per_slide_height - title_height - item_other;
+    let height_per_item = docheight / items_per_slide_height - title_height - item_other;
     var slides = document.getElementsByClassName("slider-item");
     for (var i = 0; i < slides.length; ++i) {
         slides[i].style.height = Math.floor(height_per_item) + "px";
@@ -133,12 +130,11 @@ function fitCaptionText() {
         while (true) {
             let [newWidth, newHeight] = getTextRenderedSize(items[i].innerText, window.getComputedStyle(items[i]).font);
             if ((newWidth == lastWidth || newWidth < parentWidth) && (newHeight == lastHeight || newHeight < parentHeight)) {
-                console.log(items[i].innerText, lastWidth, newHeight, lastHeight);
                 break;
             }
             lastWidth = newWidth;
             lastHeight = newHeight;
-            items[i].style.fontSize = (parseInt(window.getComputedStyle(items[i]).fontSize) - 1) + "px";
+            items[i].style.fontSize = (parseInt(window.getComputedStyle(items[i]).fontSize) - 2) + "px";
         }
     }
 }
